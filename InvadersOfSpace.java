@@ -31,7 +31,7 @@ import javafx.util.Duration;
 
 /**
  *
- * @author Devon, 1-2-16
+ * @author DP, 1-2-16
  */
 public class InvadersOfSpace extends Application{
     public int width = 500;
@@ -69,7 +69,7 @@ public class InvadersOfSpace extends Application{
                     pane.setMinSize(width, height);
                     pane.setPrefSize(width, height);
         
-                    StackPane root = new StackPane(); 
+                    StackPane root = new StackPane();
                     root.getChildren().addAll(new ImageView("/SpaceBackground.png"),pane);
         
                     Scene gameScene = new Scene(root, width, height);
@@ -325,28 +325,6 @@ class GamePane extends Pane{
         }
     }
     
-    /*public void alienGoHome(ImageView alien, Tuple startPoints){
-        double startX = startPoints.getX();
-        double startY = startPoints.getY();
-        
-        alienReturners.getChildren().add(alien);
-        
-        while (alien.getX() != startX || alien.getY() != startY){
-            if (alien.getX() < startX){
-                alien.setX(alien.getX() + 1);
-            }
-            else if (alien.getX() > startX){
-                alien.setX(alien.getX() - 1);
-            }
-            if (alien.getY() < startY){
-                alien.setY(alien.getY() + 1);
-            }
-        }
-        
-        alienReturners.getChildren().remove(alien);
-        aliens.getChildren().add(alien);
-    }*/
-    
     public void checkIfWinner(){
         if (winner == false && aliens.getChildren().size() == 0 && alienSeekers.getChildren().size() == 0){
             winner = true;
@@ -371,21 +349,6 @@ class GamePane extends Pane{
     }
     
     public void destroyShip(){
-        /**
-         * For some reason, I couldn't just remove the image, replace it with
-         * an explosion image, and then make it wait a second before replacing
-         * the spaceship image; the code would just execute it all too fast without
-         * updating the screen, making it seem like nothing happened.
-         * Thus, I had to use a Timeline to make the animation occur how I wanted
-         * it to. Then, I had to make the endRun() method wait until the
-         * destroyShip() method finished, b/c otherwise the game thread would restart
-         * during the explosion -_-
-         * 
-         * Notice that each KeyFrame's duration has the effect of saying when it starts.
-         * If there were a transition (interoperator), you would notice a change during
-         * the duration time. Since there is no interoperator, you only see the image
-         * change after the duration is over.
-         */
         if (lives == 0){
             endGame();
             return;
@@ -454,10 +417,6 @@ class GamePane extends Pane{
     
     public void endRun(){
         gameThread.stop();
-        //Without making it wait, the rest of the code will execute during the
-        //destruction animation.
-        //I haven't figured out the waiting part yet, suffice it to say I just
-        //made the animation take a shorter amount of time.
         destroyShip();
         resetPositions();
         
