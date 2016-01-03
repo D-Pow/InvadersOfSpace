@@ -1,3 +1,5 @@
+package invadersofspace;
+
 import com.sun.glass.events.WindowEvent;
 import java.net.URL;
 import java.util.ArrayList;
@@ -377,7 +379,7 @@ class GamePane extends Pane{
             this.getChildren().add(Boss);
             
             Text message = new Text("You won\nE.T. Thanks you\nfor saving the\ngalaxy" + 
-                    "\nPlay again?");
+                    "\nPlay again?(y,n)");
             message.setFont(Font.font("Vernanda", 40));
             message.setFill(Color.RED);
             message.setTextAlignment(TextAlignment.CENTER);
@@ -519,8 +521,8 @@ class GamePane extends Pane{
     public void endGame(){
         this.getChildren().clear();
         
-        Text message = new Text("You lose!\nBut the galaxay\nis still in peril\n"
-                + "Try again?");
+        Text message = new Text("You lose!\nBut the galaxay\nis still in peril.\n"
+                + "Try again?(y,n)");
         message.setFont(Font.font("Vernanda", 40));
         message.setFill(Color.RED);
         message.setTextAlignment(TextAlignment.CENTER);
