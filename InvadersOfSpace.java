@@ -369,14 +369,14 @@ class GamePane extends Pane{
     public void checkIfWinner(){
         if (winner == false && aliens.getChildren().size() == 0 && alienSeekers.getChildren().size() == 0){
             winner = true;
-            ImageView Boss = new ImageView("Boss.png");
-            Boss.setFitWidth(alienSize*10);
-            Boss.setFitHeight(alienSize*10);
-            Boss.setX((Width - Boss.getFitWidth())/2);
-            Boss.setY(10);
+            ImageView Win = new ImageView("Win.png");
+            Win.setFitWidth(alienSize*10);
+            Win.setFitHeight(alienSize*10);
+            Win.setX((Width - Win.getFitWidth())/2);
+            Win.setY(10);
             aliens.getChildren().clear();
             //alienSeekers.getChildren().clear();
-            this.getChildren().add(Boss);
+            this.getChildren().add(Win);
             
             Text message = new Text("You won\nE.T. Thanks you\nfor saving the\ngalaxy" + 
                     "\nPlay again?(y,n)");
