@@ -1,39 +1,29 @@
 package invadersofspace;
 
-import com.sun.glass.events.WindowEvent;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.application.Platform;
 import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
-import static javafx.event.Event.fireEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
@@ -41,7 +31,7 @@ import javafx.util.Duration;
 
 /**
  *
- * @author DP, 1-2-16
+ * @author Devon, 1-2-16
  */
 public class InvadersOfSpace extends Application{
     public int width = 500;
@@ -68,10 +58,6 @@ public class InvadersOfSpace extends Application{
         primaryStage.setTitle("Invaders of Space!");
         primaryStage.setResizable(false);
         primaryStage.show();
-        //primaryStage.setOnCloseRequest(e -> System.exit(0));
-        //It's better to override the stop() method b/c then individual scenes/stages
-        //can call Platform.exit() to invoke the stop method. Then, System.exit() from
-        //the stop() method.
         
         primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>(){
 
@@ -83,12 +69,7 @@ public class InvadersOfSpace extends Application{
                     pane.setMinSize(width, height);
                     pane.setPrefSize(width, height);
         
-                    StackPane root = new StackPane(); //will stack the game pane on top of background
-                    //The setStyle is basically typing CSS data directly into the code.
-                    //This is technically less efficient, but I didn't need much personalization
-                    //for my purposes so it worked for me.
-                    //root.setStyle("-fx-background-image: url(/SpaceBackground.png);");
-                    //+ "-fx-background-size: " + img.getWidth() + ", " + img.getHeight() + ";");
+                    StackPane root = new StackPane(); 
                     root.getChildren().addAll(new ImageView("/SpaceBackground.png"),pane);
         
                     Scene gameScene = new Scene(root, width, height);
