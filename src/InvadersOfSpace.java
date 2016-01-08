@@ -31,7 +31,8 @@ import javafx.util.Duration;
 
 /**
  *
- * @author DP, 1-2-16
+ * @author D-Pow
+ * 1-2-16
  */
 public class InvadersOfSpace extends Application{
     public int width = 500;
