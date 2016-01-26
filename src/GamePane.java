@@ -419,19 +419,3 @@ public class GamePane extends Pane{
         this.getChildren().add(message);
     }
 }//End class GamePane
-
-class Alien{
-    /**
-     * This class is only to set the alienImage properties.
-     * In reality, only the alienImage is needed after the properties are set.
-     */
-    public ImageView alienImage;
-    public int startX;
-    public int startY;
-    
-    public Alien(double size){
-        alienImage = new ImageView("Alien.png");
-        alienImage.setFitWidth(size);
-        alienImage.setFitHeight(size);
-    }
-}
